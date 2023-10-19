@@ -42,6 +42,7 @@ const Dashboard = () => {
     return (
         <DashboardContext.Provider value={{ user, tickets, setTickets }}>
             <div className="dashboard__container">
+                <h1>Hello, {user.username}. Welcome to your Kanban board.</h1>
                 <div className="dashboard__box">
                     {
                         categories.map((item, index) => (

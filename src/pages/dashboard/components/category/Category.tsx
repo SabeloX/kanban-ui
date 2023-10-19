@@ -1,5 +1,5 @@
 import { Button } from "../../../../components/button/Button";
-import { useUser } from "../../../../hooks/useUser";
+import { useDashboardContext } from "../../../../hooks/useDashboardContext";
 import { Ticket } from "../ticket/Ticket";
 import "./category.css";
 
@@ -18,8 +18,15 @@ interface CategoryProps {
 }
 
 export const Category = ({ heading, tickets }: CategoryProps) => {
-    const user = useUser();
+    const context = useDashboardContext();
 
+    const addTicket = () => {
+        const newTicket: TicketType = {
+            title: "No title",
+            status: heading
+        }
+        context.setTickets([...context.tickets, newTicket])
+    }
     return (
         <div className="kanbanBoard__container">
             <h2 className="kanbanBoard__heading">{heading}</h2>
@@ -29,9 +36,9 @@ export const Category = ({ heading, tickets }: CategoryProps) => {
                 ))
             }
             {
-                user.role === "Admin" &&
+                context.user.role === "Admin" &&
                 <div className="kanbanBoard__button__container">
-                    <Button className="kanbanBoard__button">Add ticket</Button>
+                    <Button onClick={addTicket} className="kanbanBoard__button">Add ticket</Button>
                 </div>
             }
         </div>

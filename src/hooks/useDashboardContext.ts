@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { Dispatch, SetStateAction, createContext, useContext } from "react";
 import { TicketType } from "../pages/dashboard/components/category/Category";
 
 export type User = {
@@ -9,14 +9,15 @@ export type User = {
 export type DashboardContextType = {
     user: User;
     tickets: TicketType[];
+    setTickets: Dispatch<SetStateAction<TicketType[]>>
 }
 
 export const DashboardContext = createContext<DashboardContextType | undefined>(undefined);
 
-export const useUser = () => {
+export const useDashboardContext = () => {
     const context = useContext(DashboardContext);
 
-    if (!context) throw new Error("No context for the user.");
+    if (!context) throw new Error("No context found.");
 
-    return context.user;
+    return context;
 }

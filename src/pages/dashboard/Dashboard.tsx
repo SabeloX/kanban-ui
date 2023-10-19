@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./dashboard.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { Category, CategoryType, TicketType } from "./components/category/Category";
-import { DashboardContext } from "../../hooks/useUser";
+import { DashboardContext } from "../../hooks/useDashboardContext";
 
 const categories = ["To-Do", "In Progress", "Done"];
 const sampleTickets: TicketType[] = [
@@ -33,18 +33,17 @@ const sampleTickets: TicketType[] = [
 ]
 
 const Dashboard = () => {
-    const { state } = useLocation();
-    const user = state.user;
-    const navigate = useNavigate();
+    const location = useLocation();
+    const user = location.state ? location.state.user : null;
 
     const [tickets, setTickets] = useState<TicketType[]>(sampleTickets);
 
-    useEffect(() => {
-        if (!user) navigate('/login');
-    }, []);
+    if (!user) {
+        return <Navigate to="/login"/>
+    }
 
     return (
-        <DashboardContext.Provider value={user}>
+        <DashboardContext.Provider value={{ user, tickets, setTickets }}>
             <div className="dashboard__container">
                 <div className="dashboard__box">
                     {

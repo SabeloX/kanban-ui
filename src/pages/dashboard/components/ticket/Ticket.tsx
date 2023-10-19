@@ -2,14 +2,14 @@ import { TicketType } from "../category/Category"
 import "./ticket.css";
 import editIcon from "../../../../assets/icons/edit.svg";
 import userIcon from "../../../../assets/icons/user.svg";
-import { useUser } from "../../../../hooks/useUser";
+import { useDashboardContext } from "../../../../hooks/useDashboardContext";
 
 interface TicketProps {
     ticket: TicketType;
 }
 
 export const Ticket = ({ ticket }: TicketProps) => {
-    const user = useUser();
+    const { user } = useDashboardContext();
 
     return (
         <div className="ticket__container">

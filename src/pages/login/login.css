@@ -49,12 +49,5 @@
 }
 
 .login__submitButton {
-    height: 40px;
     width: 80%;
-    border-radius: 10px;
-    border: none;
-    background-color: #002B83;
-    color: #ffffff;
-    font-size: 18px;
-    cursor: pointer;
 }

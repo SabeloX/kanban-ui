@@ -1,6 +1,7 @@
 import { SyntheticEvent, useState } from "react";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../components/button/Button";
 
 type UserType = "Admin" | "User";
 
@@ -15,7 +16,7 @@ const Login = () => {
         event.preventDefault();
         if (username !== "" && role !== null) {
             setError(null);
-            navigate('/', { state: { username, role } });
+            navigate('/', { state: { user: { username, role }}});
         }
         else {
             setError("Please enter your username and role.");
@@ -33,7 +34,7 @@ const Login = () => {
                         <option className="login__option" value="User">User</option>
                     </select>
                     { error && <p className="login__error">{ error }</p> }
-                    <button className="login__submitButton" type="submit">Login</button>
+                    <Button className="login__submitButton" type="submit">Login</Button>
                 </form>
             </div>
         </div>

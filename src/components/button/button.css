@@ -1,0 +1,11 @@
+.generic__button {
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #002B83;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px;
+    min-width: 200px;
+    cursor: pointer;
+}

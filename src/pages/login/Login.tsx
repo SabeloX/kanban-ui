@@ -3,8 +3,16 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/button/Button";
 
+/**
+ * Represents the possible user roles for login.
+ * @typedef {"Admin" | "User"} UserType
+ */
 type UserType = "Admin" | "User";
 
+/**
+ * The Login component handles user authentication.
+ * @returns {JSX.Element} The Login component JSX.
+ */
 const Login = () => {
     const [username, setUsername] = useState<string>("");
     const [role, setRole] = useState<UserType | null>("Admin");
@@ -12,6 +20,10 @@ const Login = () => {
 
     const navigate = useNavigate();
 
+    /**
+     * Handle form submission and navigate to the main page if login is successful.
+     * @param {SyntheticEvent} event - The form submission event.
+     */
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
         if (username !== "" && role !== null) {

@@ -1,16 +1,22 @@
 import { createContext, useContext } from "react";
+import { TicketType } from "../pages/dashboard/components/category/Category";
 
 export type User = {
     username: string;
     role: "Admin" | "User";
 }
 
-export const DashboardContext = createContext<User | undefined>(undefined);
+export type DashboardContextType = {
+    user: User;
+    tickets: TicketType[];
+}
+
+export const DashboardContext = createContext<DashboardContextType | undefined>(undefined);
 
 export const useUser = () => {
-    const user = useContext(DashboardContext);
+    const context = useContext(DashboardContext);
 
-    if (!user) throw new Error("No context for the user.");
+    if (!context) throw new Error("No context for the user.");
 
-    return user;
+    return context.user;
 }

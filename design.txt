@@ -1,0 +1,13 @@
+Here's a brief documentation for the project:
+
+1. **Routing**: I implemented routing using React Router DOM to navigate between the Login page and the Dashboard. This helps organize and manage the application's different views.
+
+2. **Separation of Styles**: To maintain a clean and organized codebase, I separated the CSS styles from the JSX/TSX files. This separation makes it easier to manage and update the styling of components.
+
+3. **State Management**: For sharing state across different components, I utilized the Context API. This allows components to access and share data without having to pass it through multiple levels of props.
+
+4. **User Authentication**: If no user is logged in, the application automatically redirects to the Login page. This ensures that only authenticated users can access the Dashboard.
+
+5. **Reusable Components**: To enhance code reusability, I created a reusable Button component. While the intention was to create similar components for input elements and selects, time constraints limited the scope.
+
+6. **App Schema**: You can refer to the "planning.png" image to get an overview of the application's schema and flow. This visual representation provides insights into how different parts of the app connect and interact.

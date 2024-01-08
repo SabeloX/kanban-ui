@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: cimg/base:2021.04
     steps:
-      - checkout:
+      - checkout
       - run:
           name: The first step
           command: |
@@ -14,5 +14,5 @@ jobs:
       - run:
           name: Step 2
           command: |
-            ls -a
+            ls -al
             echo '^^^ The files in this repo ^^^'

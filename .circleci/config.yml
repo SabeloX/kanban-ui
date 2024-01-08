@@ -34,6 +34,6 @@ workflows:
       - Fetch-Code:
           requires:
             - Hello-World
-      - Using-Node
+      - Using-Node:
           requires:
             - Fetch-Code

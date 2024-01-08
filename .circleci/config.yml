@@ -8,5 +8,5 @@ jobs:
       - run:
         name: The first step
         command: |
-          echo "Hello World"
-          echo "This is a delivery pipe"
+          echo 'Hello World'
+          echo 'This is a delivery pipe'
